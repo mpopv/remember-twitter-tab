@@ -15,26 +15,31 @@ function selectTextNodeByText(text) {
     var childNodes = element.childNodes;
     for (var j = 0; j < childNodes.length; j++) {
       var node = childNodes[j];
-      if (node.nodeType === 3 && node.textContent === text) {
+      if (node.textContent.trim() === text) {
         return node;
       }
     }
   }
 }
 
-const $forYou = selectTextNodeByText("For you");
-const $following = selectTextNodeByText("Following");
-
-$forYou.addEventListener("click", () => {
-  localStorage.setItem("lastClickedFollowing", false);
-});
-
-$following.addEventListener("click", () => {
-  localStorage.setItem("lastClickedFollowing", true);
-});
-
-const lastClickedFollowing = localStorage.getItem("lastClickedFollowing");
-
-if (lastClickedFollowing === "true") {
-  $following.click();
+function runScript() {
+  try {
+    const $forYou = selectTextNodeByText("For you");
+    const $following = selectTextNodeByText("Following");
+    $forYou.addEventListener("click", () => {
+      localStorage.setItem("lastClickedFollowing", false);
+    });
+    $following.addEventListener("click", () => {
+      localStorage.setItem("lastClickedFollowing", true);
+    });
+    const lastClickedFollowing = localStorage.getItem("lastClickedFollowing");
+    if (lastClickedFollowing === "true") {
+      $following.childNodes[0].click();
+    }
+  } catch (e) {
+    console.log(e);
+    setTimeout(runScript, 100);
+  }
 }
+
+runScript();
