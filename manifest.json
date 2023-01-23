@@ -1,26 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "Your Chrome Extension Name",
+  "name": "remember-twitter-tab",
   "version": "0.1",
   "author": "First Last",
-  "description": "A description about your Chrome Extension...",
-  "permissions": [
-    ""
-  ],
+  "description": "Remember which For You / Following tab you were last on, and go there when you visit Twitter's homepage",
+  "permissions": [""],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ]
+      "matches": ["https://twitter.com/home"],
+      "js": ["content.js"]
     }
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   },
   "browser_action": {
     "default_icon": "logo.png",
