@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "remember-twitter-tab",
+  "name": "remember-twitter-tab-2023",
   "version": "0.1",
   "author": "First Last",
   "description": "Remember which For You / Following tab you were last on, and go there when you visit Twitter's homepage",
@@ -16,6 +16,6 @@
   },
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "A tooltip popup description when you hover over the Chrome Extension icon."
+    "default_title": "Remember which For You / Following tab you were last on, and go there when you visit Twitter's homepage"
   }
 }
